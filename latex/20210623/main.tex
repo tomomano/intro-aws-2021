@@ -26,7 +26,7 @@
 
 講義では実際に AWS のクラウドにアプリケーションを展開します．
 それには AWS Educate により提供されている学習用アカウントを使用します．
-
+本講義は AWS Educate プログラムに参加しているので，各アカウントには100ドル分のクーポン(利用枠)がついています．
 
 次からのスライドで示す手順でアカウントを取得します．
 
@@ -89,17 +89,62 @@
 \frametitle{AWS Educate のアカウントの用意 (5)}
 
 \begin{itemize}
-    \item vocareum のコンソール画面から \emph{} を押します．
+    \item vocareum のコンソール画面から \emph{AWS Console} と書かれたボタンを押します．
     \item AWS コンソールが開きます
     \item このようにして得られた AWS アカウントを使って講義のハンズオンを実施してください．
-    \item AWS secret key など各種の設定方法は \href{https://tomomano.github.io/learn-aws-by-coding/}{講義資料 (15章 Appendix)} を参照してください．
 \end{itemize}
 
 \begin{figure}
     \centering
     \includegraphics[width=0.5\textwidth]{imgs/aws_console_screenshot.png}
-    \caption{vocareum のコンソール画面}
+    \caption{AWS コンソール画面}
 \end{figure}
+
+\end{frame}
+
+\begin{frame}{AWS Educate のシークレットキーの設定 (1)}
+
+ここまでで AWS Educate Starter Account の取得が完了した．
+
+次にシークレットキーと呼ばれるものの設定を行う．
+シークレットキーは， AWS CLI/CDK を使って AWS の API を操作する際の認証情報を担う．
+
+Starter Account で作られたアカウントはシークレットキーの設定方法が一般アカウントと若干異なる．
+
+次からのスライドで示す手順でシークレットキーを設定する．
+
+\href{https://tomomano.github.io/learn-aws-by-coding/}{講義資料 (15章 Appendix)} にも同様の説明が記載されている．
+    
+\end{frame}
+
+\begin{frame}{AWS Educate のシークレットキーの設定 (2)}
+
+\begin{itemize}
+    \item AWS Educate のコンソール画面から， vocareum のコンソールに移動する
+    \item \emph{Account Details} をクリックし，続いて \emph{AWS CLI: Show} をクリックする
+    \item \emph{aws\_access\_key\_id}, \emph{aws\_secret\_access\_key}, \emph{aws\_session\_token} が表示される．ここで表示された内容を \emph{~\textasciitilde/.aws/credentials} にコピーする
+\end{itemize}
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.5\textwidth]{imgs/vocareum_secret.png}
+    \caption{vocareum から AWS シークレットキーの発行}
+\end{figure}
+
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{AWS Educate のシークレットキーの設定 (3)}
+
+\begin{itemize}
+    \item 続いて， \emph{\textasciitilde/.aws/config} というファイルを用意し，次の内容を書き込む． 現時点では AWS Starter Account は \emph{us-east-1} リージョンでしか利用できないためである．
+    
+    \begin{semiverbatim}
+    [profile default]
+    region = ap-northeast-1
+    output = json
+    \end{semiverbatim}
+\end{itemize}
 
 \end{frame}
 
