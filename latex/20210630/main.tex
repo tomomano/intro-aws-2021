@@ -1,0 +1,97 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% Welcome to Overleaf --- just edit your LaTeX on the left,
+% and we'll compile it for you on the right. If you open the
+% 'Share' menu, you can invite other users to edit at the same
+% time. See www.overleaf.com/learn for more info. Enjoy!
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\documentclass[unicode,11pt]{beamer}
+\usepackage[whole,autotilde]{bxcjkjatype}
+\usetheme{Madrid}
+\definecolor{links}{HTML}{2A1B81}
+\hypersetup{colorlinks,linkcolor=,urlcolor=links}
+
+\title{システム情報工学特論}
+\subtitle{コードで学ぶAWS入門 - 第二回}
+\author{真野智之 (Tomoyuki Mano)}
+\institute[OIST]{Okinawa Institute of Science and Technology}
+\date{2021/06/30 @東大工学部}
+
+\begin{document}
+
+\frame{\titlepage}
+
+\begin{frame}{セットアップの確認}
+
+\begin{itemize}
+    \item 今日はハンズオンで AWS のクラウドを実際に動かしていきます．
+    以下の準備が整っている前提で進めます．
+    \item AWS Educate のアカウントの準備はできていますか？
+できていない人は \href{https://github.com/tomomano/intro-aws-2021/blob/main/slides/20210623.pdf}{前回のスライド} を見て設定を完了してください．
+    \item AWS CLI と AWS CDK のインストールは済んでいますか？
+済んでいない人は \href{https://tomomano.github.io/learn-aws-by-coding/#_appendix}{講義資料 Appendix} を参考にインストールを済ませてください．
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}{ハンズオン\#2 について}
+
+\begin{itemize}
+    \item ハンズオン\#2 では AWS 上で GPU を使用する方法を解説します．
+    \item しかしながら， AWS Educate アカウントは GPU の機能がロックされていて，ハンズオンのプログラムを実行するとエラーになります．
+    \item {\color{red} そこで， GPU を使うための専用のアカウントを各生徒に発行します．
+    このアカウントは今日の講義の時間のみ有効です．}
+    講義の終了後にはすみやかに削除されます．
+    \item もし手元でハンズオン\#2を実行したい人は上記の講義専用アカウントを使用してください．
+    少し内容が高度でついてくるのが難しいと感じる人は，講義で私がデモをするのを見ていてもらえれOKです．
+    \item GPU を使用した計算はレポート問題には出しません．
+\end{itemize}
+
+次のスライドから，講義専用アカウントの使い方を説明します．
+
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{講義専用アカウントの使い方 (1)}
+
+\begin{itemize}
+    \item 真野から各生徒のメールアドレス (AWS Educate に使用しているメールアドレス) にログイン情報を記述したテキストファイル (JSON ファイル) が送信されます．
+    \item 適当なテキストエディターでこれを開くと以下のような内容が書いてあるはずです．
+    \begin{semiverbatim}
+    \{
+        "UserName": "student-XXX",
+        "Password": "ABCDEF",
+        "AccessKeyId": "XXXXXXXXX",
+        "SecretAccessKey": "YYYYYYYY",
+        "Sign in link": "https://ZZZZZZZ"
+    \}
+    \end{semiverbatim}
+\end{itemize}
+    
+\end{frame}
+
+\begin{frame}{講義専用アカウントの使い方 (2)}
+
+\begin{itemize}
+    \item AWSコンソールにログインするには， "Sign in link" にアクセスし， "UserName" と "Password" を入力してください．
+    \item AWS CLI / CDK を使うには，"AccessKeyId", "SecretAccessKey" を使用してください．
+    この使い方は Education アカウントで設定したのと同じです．
+    Educate アカウントとの違いは "aws\_session\_token" は不要な点です．
+\end{itemize}
+    
+\end{frame}
+
+\begin{frame}{講義専用アカウントの注意点}
+
+\begin{itemize}
+    \item このアカウントは今日の講義の時間中のみ有効です．
+    講義が終わったあとは，数時間以内に削除されることに注意してください．
+    \item この講義のために \$200 のクレジットが付与されています．
+    この \$200 を受講者全員で共有している状態です．
+    (ないとは思いますが) 大量の計算を走らせるとこのクレジットが枯渇してしまいますので，講義のハンズオン以外の目的には使用しないようにしてください．
+\end{itemize}
+    
+\end{frame}
+
+\end{document}
