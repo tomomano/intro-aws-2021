@@ -1,0 +1,77 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% Welcome to Overleaf --- just edit your LaTeX on the left,
+% and we'll compile it for you on the right. If you open the
+% 'Share' menu, you can invite other users to edit at the same
+% time. See www.overleaf.com/learn for more info. Enjoy!
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\documentclass[unicode,11pt]{beamer}
+\usepackage[whole,autotilde]{bxcjkjatype}
+\usetheme{Madrid}
+\definecolor{links}{HTML}{2A1B81}
+\hypersetup{colorlinks,linkcolor=,urlcolor=links}
+
+\title{システム情報工学特論}
+\subtitle{コードで学ぶAWS入門 - 第三回}
+\author{真野智之 (Tomoyuki Mano)}
+\institute[OIST]{Okinawa Institute of Science and Technology}
+\date{2021/07/07 @東大工学部}
+
+\begin{document}
+
+\frame{\titlepage}
+
+\begin{frame}{講義に関連するリンクなど (再掲)}
+\begin{itemize}
+    \item 講義資料は
+    \url{https://tomomano.github.io/learn-aws-by-coding/}\\
+    にあります．
+    \item ハンズオンで使用するソースコードは \url{https://github.com/tomomano/learn-aws-by-coding}\\
+    にあります
+    \item 課題やいくつかの補助スライドは
+    \url{https://github.com/tomomano/intro-aws-2021}\\
+    にあります
+\end{itemize}
+\end{frame}
+
+\begin{frame}{AWS Educate エラーについて (1)}
+
+\begin{itemize}
+    \item ITC-LMS で以下のアナウンスをしました．
+    念のため以下に再掲しておきます．
+\end{itemize}
+
+{\tiny		
+真野です．
+ハンズオン#1 でエラーになってしまう問題ですが，AWS側の不具合だった可能性があります．
+先ほど，私の方でもう一個新しいアカウントを作成して試したところ，エラーが解消されました．
+正直，私もなにが起こっているのかわかりませんが，なにか一時的な不具合だった可能性があります．
+なので，今日エラーに遭遇した人は，明日にでももう一度試してみてください．
+もし， "AccessDenied. User doesn't have permission to call ssm:GetParameters" というエラーが出た場合は，アカウント自体になんらかの不具合が生じている可能性があります．
+すでに今回の講義で少なくとも2件この問題が生じていることが確認できています．
+他のエラーメッセージが返ってきた場合は，コマンドの設定などに問題がないかもう一度確認してください．
+わからない場合は僕までメールをください．
+ "AccessDenied. User doesn't have permission to call ssm:GetParameters" が解消されない場合は，新しいアカウントを発行することで解消できる可能性があります．
+この場合は，gcc 以外のメールでも大丈夫なので，別のメールアドレスを真野まで連絡してください．
+期末レポートには AWS Educate を使った課題を出すので，全員がハンズオン１が無事に実行できることを確認してください．
+後から申告があった場合，対応が間に合わない可能性があります．
+この不具合の実体を把握したいので，ハンズオン＃１ができたかできていないかだけでも，真野まで連絡してください．
+全員が可能な限り今週の金曜日までに回答をお願いします．
+}
+\end{frame}
+
+\begin{frame}{AWS Educate エラーについて (2)}
+
+重要な点は以下です．
+
+\begin{itemize}
+    \item 影響を受けているアカウントとそうでないアカウントがあるようです．
+    \item 自身のAWS Educate のアカウントを使用してハンズオン#1 がエラーなく実行できるか，全員が確認してください．
+    \item アカウントにエラーが発生している人はすぐに真野まで連絡ください．
+    アカウントを再発行します．
+\end{itemize}
+
+\end{frame}
+
+\end{document}
